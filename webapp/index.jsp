@@ -86,6 +86,10 @@
         win.document.close();
     }
 
+    function setZipData(zipcode) {
+        document.getElementById("zip").value = zipcode;
+    }
+
 </script>
 
 </body>
