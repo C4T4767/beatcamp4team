@@ -69,7 +69,7 @@
 
                 <tr height="40">
                     <td colspan="4" align="center" width="150">
-                        <input type="button" onclick="location.href='index.jsp'" value="로그아웃">
+                        <input type="button" onclick="location.href='login.jsp'" value="로그아웃">
                     </td>
                 </tr>
             </table>
