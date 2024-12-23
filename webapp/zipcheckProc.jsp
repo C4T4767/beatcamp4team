@@ -9,7 +9,8 @@
 <%
     Connection con = DBConnectionDAO.get();
     MemberDAO mdao = new MemberDAO(con);
-    Vector<ZipBean> vec = mdao.getZip(request.getParameter("address"));
+    String address = "강남";
+    Vector<ZipBean> vec = mdao.getZip(address);
 %>
 <body>
 <center>
@@ -17,7 +18,7 @@
     <table border="1">
         <thead>
         <tr height="30">
-            <td width="50" align="center">우편번호</td>
+            <td width="100" align="center">우편번호</td>
             <td width="500" align="center">시/도</td>
             <td width="100" align="center">구</td>
             <td width="150" align="center">도로명</td>
@@ -25,29 +26,24 @@
         </tr>
         </thead>
         <%
-            for(ZipBean zip : vec){
-                out.print("<form method='POST' action='index.jsp'>");
-                out.print("<tr height=\"30\">");
-                out.print("</tr>");
-                out.print("<input type='submit' value='선택'");
-                out.print("</form>");
+            for (ZipBean zip : vec) {
+        %>
+        <form method="POST" action="index.jsp">
+            <tr height="30">
+                <td><%= zip.getZipcode() %></td>
+                <td><%= zip.getArea1() %></td>
+                <td><%= zip.getArea2() %></td>
+                <td><%= zip.getArea3() %></td>
+            </tr>
+            <input type="hidden" name="zipcode" value="<%= zip.getZipcode() %>">
+            <input type="hidden" name="area1" value="<%= zip.getArea1() %>">
+            <input type="hidden" name="area2" value="<%= zip.getArea2() %>">
+            <input type="hidden" name="area3" value="<%= zip.getArea3() %>">
+            <input type="submit" value="선택">
+        </form>
+        <%
             }
         %>
-        <tr height="30">
-            <td colspan="5" align="center">
-                <input type="button" value="글작성" onClick="window.location.href='./'"></input>
-            </td>
-        </tr>
     </table>
-    <%
-        for(int i=1;i<=pageCount;i++){
-            if(pages==i){
-                out.print("["+i+"]");
-            }
-            else {
-                out.print("<a style='text-decoration:none;' href='BoardList.jsp?page=" + i + "'>[" + i + "]</a>");
-            }
-        }
-    %>
 </center>
 </body>

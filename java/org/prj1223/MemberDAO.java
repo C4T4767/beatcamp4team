@@ -46,7 +46,7 @@ public class MemberDAO {
     }
 
     public Vector<ZipBean> getZip(String address) throws SQLException {
-        String sql = "SELECT * FROM zips WHERE area1 LIKE ? OR area2 LIKE ?";
+        String sql = "SELECT * FROM zip WHERE area1 LIKE ? OR area2 LIKE ?";
         ps = con.prepareStatement(sql);
         ps.setString(1, "%" + address + "%");  // area1에서 부분 일치하는 값 검색
         ps.setString(2, "%" + address + "%");
