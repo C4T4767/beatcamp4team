@@ -68,6 +68,7 @@ public class MemberDAO {
             member.setEmail(rs.getString("email"));
             member.setBirth(rs.getString("birth"));
             member.setZipcode(rs.getString("zipcode"));
+            member.setHobby(rs.getString("hobby").split(","));
             member.setAddress(rs.getString("address"));
             member.setJob(rs.getString("job"));
         }

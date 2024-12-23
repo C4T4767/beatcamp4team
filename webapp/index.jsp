@@ -35,6 +35,10 @@
         select{
             width: 140px;
         }
+        .checked{
+            background: green;
+            color:white;
+        }
     </style>
 </head>
 
@@ -48,7 +52,7 @@
         아이디 <span>*</span>
     </label>
     <input type="text" id="user" name="id" required>
-    <input type="button" value="ID중복확인" onclick="id_check()"><br>
+    <input type="button" value="ID중복확인" id="idCheckButton" onclick="id_check()"><br>
     <input type="checkbox" name="isDuplicate" id="isDuplicate" hidden>
 
 
@@ -112,7 +116,9 @@
     <script>
         let idbox = document.querySelector('#user');
         let checkbox = document.querySelector('#isDuplicate');
+        let testbox = document.querySelector('#idCheckButton');
         idbox.addEventListener('input', function() {
+            testbox.classList.remove('checked');
             checkbox.checked = false;
         })
 
@@ -125,6 +131,7 @@
         }
 
         function setCheck() {
+            testbox.classList.add('checked');
             checkbox.checked=true;
         }
 
@@ -138,15 +145,19 @@
         }
 
         function check(e) {
-            e.preventDefault();
             let isChecked = document.querySelector('#isDuplicate').checked;
-            if (isChecked) {
-                return true;
+            let pwd1 = document.querySelector('#pwd').value;
+            let pwd2 = document.querySelector('#pwd2').value;
+            if(pwd1 != pwd2){
+                alert("비밀번호가 일치하지 않습니다.");
+                return false;
             }
-            else{
+            if(!isChecked){
+                e.preventDefault();
                 alert("중복체크를 해주세요!")
                 return false;
             }
+            return true;
 
     }
 
