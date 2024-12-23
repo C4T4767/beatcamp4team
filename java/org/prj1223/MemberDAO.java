@@ -49,7 +49,7 @@ public class MemberDAO {
         ps.setString(6,member.getBirth());
         ps.setString(7,member.getZipcode());
         ps.setString(8,member.getAddress());
-        ps.setString(9,hobbys.toString());
+        ps.setString(9,hobbys.toString().trim());
         ps.setString(10,member.getJob());
         ps.executeUpdate();
     }
@@ -68,7 +68,7 @@ public class MemberDAO {
             member.setEmail(rs.getString("email"));
             member.setBirth(rs.getString("birth"));
             member.setZipcode(rs.getString("zipcode"));
-            member.setHobby(rs.getString("hobby").split(","));
+            member.setHobby(rs.getString("hobby").split(" "));
             member.setAddress(rs.getString("address"));
             member.setJob(rs.getString("job"));
         }

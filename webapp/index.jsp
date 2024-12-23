@@ -86,7 +86,7 @@
     <input type="text" id="zip" name="zipcode">
     <input type="button" value="우편번호 찾기" onclick="find_zip()"><br>
     <label>주소</label>
-    <input type="text" id="addr" name="addr"><br>
+    <input type="text" id="addr" name="address"><br>
     <label>핸드폰번호</label>
     <input type="text" id="phone" name="phone"><br>
 
