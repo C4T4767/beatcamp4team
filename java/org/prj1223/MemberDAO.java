@@ -16,7 +16,7 @@ public class MemberDAO {
         this.con=con;
     }
     public void insertMember(MemberBean member) throws SQLException {
-        String sql ="insert into members values(?,?,?,?,?,?,?,?,?,?)";
+        String sql ="insert into member values(?,?,?,?,?,?,?,?,?,?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, member.getId());
         ps.setString(2, member.getPwd());
@@ -33,7 +33,7 @@ public class MemberDAO {
 
     public MemberBean getMember(String id) throws SQLException {
         MemberBean member = new MemberBean();
-        String sql = "select * from members where id=?";
+        String sql = "select * from member where id=?";
         ps = con.prepareStatement(sql);
         ps.setString(1, id);
         rs = ps.executeQuery();

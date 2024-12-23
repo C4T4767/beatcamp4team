@@ -7,11 +7,20 @@
 %>
 
 <%
+    request.setCharacterEncoding("utf-8");
     Connection con = DBConnectionDAO.get();
     MemberDAO mdao = new MemberDAO(con);
-    String address = "강남";
+    String address = request.getParameter("writer");
+    System.out.println(address);
     Vector<ZipBean> vec = mdao.getZip(address);
 %>
+<head>
+    <style>
+        table, tr, td{
+            border:1px solid #6495ed;
+        }
+    </style>
+</head>
 <body>
 <center>
     <h1>검색된 내용</h1>

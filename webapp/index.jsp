@@ -12,38 +12,69 @@
         span {color: red;}
         label {display: inline-block; width: 180px;}
         #join {margin-left: 450px;}
-
-
+        .box{
+            border:1px solid blue;
+            background: #F0F8FF;
+            width: 630px;
+            padding-bottom: 5px;
+            padding-left:10px;
+            margin:auto;
+        }
+        input[type=text], input[type=password]{
+            width: 300px;
+        }
+        input[id=birth]{
+            width: 200px;
+        }
+        input[id=zip]{
+            width: 170px;
+        }
+        input[type=submit]{
+            margin-right: 10px;
+        }
+        select{
+            width: 140px;
+        }
     </style>
 </head>
 
 <body>
-
-<h2>회원 가입</h2>
+    <div class="box">
+<h2 style="text-align:center;">회원 가입</h2>
 <form method="post" action="memberProc.jsp">
 
 
-    <label>아이디</label> <!--필수-->
-    <span>* </span><input type="text" id="user" name="user" required>
+    <label>
+        아이디 <span>*</span>
+    </label>
+    <input type="text" id="user" name="user" required>
     <input type="button" value="ID중복확인" onclick="id_check()"><br>
 
-    <label>비밀번호</label> <!--필수-->
-    <span>* </span><input type="password" id="pwd" name="pwd" required><br>
-    <label>비밀번호 확인</label> <!--필수-->
-    <span>* </span><input type="password" id="pwdchk" name="pwdchk" required><br>
+    <label>
+        비밀번호 <span>*</span>
+    </label> <input type="password" id="pwd" name="pwd" required><br>
+    <label>비밀번호 확인
+        <span>*</span></label>
+    <input type="password" id="pwdchk" name="pwdchk" required><br>
 
-    <label>이름</label> <!--필수-->
-    <span>* </span><input type="text" id="name" name="name" required><br>
+    <label>
+        이름 <span>*</span>
+    </label>
+    <input type="text" id="name" name="name" required><br>
 
-    <label>성별</label><span>* </span> <!--필수-->
+    <label>
+        성별 <span>*</span></label>
     <input type="radio" name="gender" id="gender1" value="man" checked>남
     <input type="radio" name="gender" id="gender2" value="woman">여<br>
 
-    <label>생년월일</label>
-    <span>* </span><input type="text" id="birth" name="birth" required> ex)900323<br>
+    <label>
+        생년월일 <span>*</span></label>
+    <input type="text" id="birth" name="birth" required> ex)900323<br>
 
-    <label>Email</label>
-    <span>* </span><input type="text" id="email" name="email" required><br>
+    <label>
+        Email <span>*</span>
+    </label>
+    <input type="text" id="email" name="email" required><br>
 
     <label>우편번호</label>
     <input type="text" id="zip" name="zip">
@@ -73,7 +104,7 @@
     <input type="submit" id="join" value="회원가입">
     <input type="reset" id="cancle" value="다시쓰기">
 </form>
-
+    </div>
 <script>
 
     function id_check() {
@@ -82,7 +113,7 @@
     }
 
     function find_zip() {
-        let win=window.open("zip.jsp","FINDZIP","width=2000 height=3000");
+        let win=window.open("zip.jsp","FINDZIP","width=700 height=500");
         win.document.close();
     }
 
