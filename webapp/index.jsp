@@ -49,6 +49,8 @@
     </label>
     <input type="text" id="user" name="id" required>
     <input type="button" value="ID중복확인" onclick="id_check()"><br>
+    <input type="checkbox" name="isDuplicate" id="isDuplicate" hidden>
+
 
     <label>
         비밀번호 <span>*</span>
@@ -101,26 +103,51 @@
         <option>기타</option>
     </select><br>
 
-    <input type="submit" id="join" value="회원가입">
+    <input type="submit" id="join" onclick="return check(event)" value="회원가입">
     <input type="reset" id="cancle" value="다시쓰기">
 </form>
     </div>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
     <script>
+        let idbox = document.querySelector('#user');
+        let checkbox = document.querySelector('#isDuplicate');
+        idbox.addEventListener('input', function() {
+            checkbox.checked = false;
+        })
 
-    function id_check() {
-        let win=window.open("idCheck.jsp","IDCHECK","width=2000 height=3000");
-        win.document.close();
-    }
+        function id_check() {
+            window.open("idCheck.jsp?user="+idbox.value,
+                "IDCHECK",
+                "width=700,height=500"
+            );
 
-    function find_zip() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                document.getElementById("zip").value = data.zonecode;  // 우편번호
-                document.getElementById("addr").value = data.address;  // 주소
+        }
+
+        function setCheck() {
+            checkbox.checked=true;
+        }
+
+        function find_zip() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    document.getElementById("zip").value = data.zonecode;
+                    document.getElementById("addr").value = data.address;
+                }
+            }).open();
+        }
+
+        function check(e) {
+            e.preventDefault();
+            let isChecked = document.querySelector('#isDuplicate').checked;
+            if (isChecked) {
+                return true;
             }
-        }).open();
+            else{
+                alert("중복체크를 해주세요!")
+                return false;
+            }
+
     }
 
 </script>
