@@ -123,11 +123,15 @@
         })
 
         function id_check() {
-            window.open("idCheck.jsp?user="+idbox.value,
-                "IDCHECK",
-                "width=700,height=500"
-            );
-
+            if(idbox.value==""){
+                alert("아이디를 입력해 주세요!!")
+            }
+            else {
+                window.open("idCheck.jsp?user=" + idbox.value,
+                    "IDCHECK",
+                    "width=700,height=500"
+                );
+            }
         }
 
         function setCheck() {
@@ -158,7 +162,6 @@
                 return false;
             }
             return true;
-
     }
 
 </script>

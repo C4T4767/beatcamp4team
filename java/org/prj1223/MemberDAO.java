@@ -17,27 +17,29 @@ public class MemberDAO {
     }
     public void insertMember(MemberBean member) throws SQLException {
         StringBuilder hobbys = new StringBuilder();
-        for(String hb : member.getHobby()){
-            switch (hb){
-                case "game":
-                    hobbys.append("게임");
-                    break;
-                case "travel":
-                    hobbys.append("여행");
-                    break;
-                case "internet":
-                    hobbys.append("인터넷");
-                    break;
-                case "movie":
-                    hobbys.append("영화");
-                    break;
-                case "exercise":
-                    hobbys.append("운동");
-                    break;
-                default:
-                    break;
+        if(member.getHobby() !=null){
+            for(String hb : member.getHobby()) {
+                switch (hb) {
+                    case "game":
+                        hobbys.append("게임");
+                        break;
+                    case "travel":
+                        hobbys.append("여행");
+                        break;
+                    case "internet":
+                        hobbys.append("인터넷");
+                        break;
+                    case "movie":
+                        hobbys.append("영화");
+                        break;
+                    case "exercise":
+                        hobbys.append("운동");
+                        break;
+                    default:
+                        break;
+                }
+                hobbys.append(" ");
             }
-            hobbys.append(" ");
         }
         String sql ="insert into member values(?,?,?,?,?,?,?,?,?,?)";
         ps = con.prepareStatement(sql);
