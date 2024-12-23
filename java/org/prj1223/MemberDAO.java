@@ -18,7 +18,25 @@ public class MemberDAO {
     public void insertMember(MemberBean member) throws SQLException {
         StringBuilder hobbys = new StringBuilder();
         for(String hb : member.getHobby()){
-            hobbys.append(hb);
+            switch (hb){
+                case "game":
+                    hobbys.append("게임");
+                    break;
+                case "travel":
+                    hobbys.append("여행");
+                    break;
+                case "internet":
+                    hobbys.append("인터넷");
+                    break;
+                case "movie":
+                    hobbys.append("영화");
+                    break;
+                case "exercise":
+                    hobbys.append("운동");
+                    break;
+                default:
+                    break;
+            }
             hobbys.append(" ");
         }
         String sql ="insert into member values(?,?,?,?,?,?,?,?,?,?)";
@@ -46,6 +64,12 @@ public class MemberDAO {
             member.setId(rs.getString("id"));
             member.setPwd(rs.getString("pwd"));
             member.setName(rs.getString("name"));
+            member.setGender(rs.getString("gender").charAt(0));
+            member.setEmail(rs.getString("email"));
+            member.setBirth(rs.getString("birth"));
+            member.setZipcode(rs.getString("zipcode"));
+            member.setAddress(rs.getString("address"));
+            member.setJob(rs.getString("job"));
         }
         return member;
     }

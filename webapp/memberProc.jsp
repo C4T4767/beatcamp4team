@@ -13,4 +13,5 @@
     Connection con = DBConnectionDAO.get();
     MemberDAO mdao=new MemberDAO(con);
     mdao.insertMember(mbean);
+    response.sendRedirect("login.jsp");
 %>
