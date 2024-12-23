@@ -76,7 +76,33 @@
                 </tr>
                 <tr height="40">
                     <td width="150"  align="center">취미</td>
-                    <td  width="250" align="center"><%=bean.getHobby()%></td>
+                    <td align="center">
+                            <% String[] hobbys = bean.getHobby();
+                            for(String hb:hobbys){
+                                System.out.println(hb.trim());
+                                switch(hb.trim()){
+                                    case "game":
+                                        out.print("게임");
+                                        break;
+                                    case "internet":
+                                        out.print("인터넷");
+                                        break;
+                                    case "movie":
+                                        out.print("영화");
+                                        break;
+                                    case "exercise":
+                                        out.print("운동");
+                                        break;
+                                    case "travel":
+                                        out.print("여행");
+                                    default:
+                                        break;
+                                }
+                                out.print(" ");
+                            }
+                        %>
+                    </td>
+                    %>
                 </tr>
 
                 <tr height="40">
