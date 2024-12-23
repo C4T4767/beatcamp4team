@@ -14,6 +14,6 @@ public class MemberBean {
     private String birth;
     private String zipcode;
     private String address;
-    private String hobby;
+    private String[] hobby;
     private String job;
 }

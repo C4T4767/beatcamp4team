@@ -16,6 +16,29 @@ public class MemberDAO {
         this.con=con;
     }
     public void insertMember(MemberBean member) throws SQLException {
+        StringBuilder hobbys = new StringBuilder();
+        for(String hb : member.getHobby()){
+            switch (hb){
+                case "game":
+                    hobbys.append("게임");
+                    break;
+                case "travel":
+                    hobbys.append("여행");
+                    break;
+                case "internet":
+                    hobbys.append("인터넷");
+                    break;
+                case "movie":
+                    hobbys.append("영화");
+                    break;
+                case "exercise":
+                    hobbys.append("운동");
+                    break;
+                default:
+                    break;
+            }
+            hobbys.append(" ");
+        }
         String sql ="insert into member values(?,?,?,?,?,?,?,?,?,?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, member.getId());
@@ -26,7 +49,7 @@ public class MemberDAO {
         ps.setString(6,member.getBirth());
         ps.setString(7,member.getZipcode());
         ps.setString(8,member.getAddress());
-        ps.setString(9,member.getHobby());
+        ps.setString(9,hobbys.toString());
         ps.setString(10,member.getJob());
         ps.executeUpdate();
     }
@@ -41,6 +64,12 @@ public class MemberDAO {
             member.setId(rs.getString("id"));
             member.setPwd(rs.getString("pwd"));
             member.setName(rs.getString("name"));
+            member.setGender(rs.getString("gender").charAt(0));
+            member.setEmail(rs.getString("email"));
+            member.setBirth(rs.getString("birth"));
+            member.setZipcode(rs.getString("zipcode"));
+            member.setAddress(rs.getString("address"));
+            member.setJob(rs.getString("job"));
         }
         return member;
     }

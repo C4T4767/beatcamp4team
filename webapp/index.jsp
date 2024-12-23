@@ -47,7 +47,7 @@
     <label>
         아이디 <span>*</span>
     </label>
-    <input type="text" id="user" name="user" required>
+    <input type="text" id="user" name="id" required>
     <input type="button" value="ID중복확인" onclick="id_check()"><br>
 
     <label>
@@ -74,10 +74,10 @@
     <label>
         Email <span>*</span>
     </label>
-    <input type="text" id="email" name="email" required><br>
+    <input type="email" id="email" name="email" required><br>
 
     <label>우편번호</label>
-    <input type="text" id="zip" name="zip">
+    <input type="text" id="zip" name="zipcode">
     <input type="button" value="우편번호 찾기" onclick="find_zip()"><br>
     <label>주소</label>
     <input type="text" id="addr" name="addr"><br>
