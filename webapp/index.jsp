@@ -105,7 +105,9 @@
     <input type="reset" id="cancle" value="다시쓰기">
 </form>
     </div>
-<script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <script>
 
     function id_check() {
         let win=window.open("idCheck.jsp","IDCHECK","width=2000 height=3000");
@@ -113,12 +115,12 @@
     }
 
     function find_zip() {
-        let win=window.open("zip.jsp","FINDZIP","width=700 height=500");
-        win.document.close();
-    }
-
-    function setZipData(zipcode) {
-        document.getElementById("zip").value = zipcode;
+        new daum.Postcode({
+            oncomplete: function(data) {
+                document.getElementById("zip").value = data.zonecode;  // 우편번호
+                document.getElementById("addr").value = data.address;  // 주소
+            }
+        }).open();
     }
 
 </script>
