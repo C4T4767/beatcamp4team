@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <html>
-<style>
-    table{
-        border:1px solid #6495ed;
-        background-color: #f0f8ff;
-    }
-
-</style>
 <head>
-
     <meta charset="UTF-8">
     <title>Login</title>
+    <style>
+        table{
+            border:1px solid #6495ed;
+            background-color: #f0f8ff;
+        }
 
+    </style>
 </head>
 <body>
 
@@ -29,7 +27,7 @@
             </tr>
             <tr height="50">
                 <td width="100" align="center">비밀번호</td>
-                <td width="200" align="center"><input type="password" name="pwd1" size="20"></td>
+                <td width="200" align="center"><input type="password" name="pwd" size="20"></td>
             </tr>
             <tr height="50">
                 <td align="center" colspan="2"><input type="submit" value="로그인">
