@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="org.prj1223.DBConnectionDAO" %>
+<%@ page import="org.prj1223.MemberDAO" %>
+<%@ page import="org.prj1223.MemberBean" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <html>
@@ -16,6 +20,16 @@
 
 <center>
     <h2>로그인</h2>
+    <%
+
+        Connection con = DBConnectionDAO.get();
+        MemberDAO mdao= new MemberDAO(con);
+        MemberBean bean= mdao.getMember("id");
+    %>
+    <jsp:useBean id="mbean" class="org.prj1223.MemberBean">
+        <jsp:setProperty name="mbean" property="*"/>
+    </jsp:useBean>
+
 
     <form action="loginProc.jsp" method="post">
         <table width="300" >
