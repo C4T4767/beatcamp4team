@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <html>
-<style>
-    table{
-        border:1px solid #6495ed;
-        background-color: #f0f8ff;
-    }
-
-</style>
 <head>
-
     <meta charset="UTF-8">
     <title>Login</title>
+    <style>
+        table{
+            border:1px solid #6495ed;
+            background-color: #f0f8ff;
+        }
 
+    </style>
 </head>
 <body>
 
