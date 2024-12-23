@@ -8,8 +8,8 @@
     <form action="zipcheckProc.jsp" method="post">
         <table width="600">
             <tr height="40">
-                <td align="center" width="150">찾을 주소</td>
-                <td width="450"><input type="text" name="writer" size="50"></td>
+                <td align="center" width="150"><strong>찾을 주소</strong></td>
+                <td width="450"><input type="text" name="writer" size="30"></td>
             </tr>
             <tr>
                 <td align="center" colspan="2">
