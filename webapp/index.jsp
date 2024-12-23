@@ -20,7 +20,7 @@
             padding-left:10px;
             margin:auto;
         }
-        input[type=text], input[type=password]{
+        input[type=text], input[type=password], input[type=email] {
             width: 300px;
         }
         input[id=birth]{
