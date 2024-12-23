@@ -16,6 +16,11 @@ public class MemberDAO {
         this.con=con;
     }
     public void insertMember(MemberBean member) throws SQLException {
+        StringBuilder hobbys = new StringBuilder();
+        for(String hb : member.getHobby()){
+            hobbys.append(hb);
+            hobbys.append(" ");
+        }
         String sql ="insert into member values(?,?,?,?,?,?,?,?,?,?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, member.getId());
@@ -26,7 +31,7 @@ public class MemberDAO {
         ps.setString(6,member.getBirth());
         ps.setString(7,member.getZipcode());
         ps.setString(8,member.getAddress());
-        ps.setString(9,member.getHobby());
+        ps.setString(9,hobbys.toString());
         ps.setString(10,member.getJob());
         ps.executeUpdate();
     }
