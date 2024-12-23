@@ -16,7 +16,7 @@ public class MemberDAO {
         this.con=con;
     }
     public void insertMember(MemberBean member) throws SQLException {
-        String sql ="insert into members values(?,?,?,?,?,?,?,?,?,?)";
+        String sql ="insert into member values(?,?,?,?,?,?,?,?,?,?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, member.getId());
         ps.setString(2, member.getPwd());
