@@ -1,0 +1,12 @@
+{"students":  [
+  {
+    "address":"경기도",
+    "name":"kim",
+    "phone":"010111111"
+  },
+  {
+    "address": "서울시",
+    "name": "lee",
+    "phone": "010000000"
+  }
+]}
