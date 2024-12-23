@@ -33,7 +33,7 @@ public class MemberDAO {
 
     public MemberBean getMember(String id) throws SQLException {
         MemberBean member = new MemberBean();
-        String sql = "select * from members where id=?";
+        String sql = "select * from member where id=?";
         ps = con.prepareStatement(sql);
         ps.setString(1, id);
         rs = ps.executeQuery();
