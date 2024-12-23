@@ -147,7 +147,7 @@
         function check(e) {
             let isChecked = document.querySelector('#isDuplicate').checked;
             let pwd1 = document.querySelector('#pwd').value;
-            let pwd2 = document.querySelector('#pwd2').value;
+            let pwd2 = document.querySelector('#pwdchk').value;
             if(pwd1 != pwd2){
                 alert("비밀번호가 일치하지 않습니다.");
                 return false;

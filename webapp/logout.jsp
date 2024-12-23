@@ -52,7 +52,14 @@
                 </tr>
                 <tr height="40">
                     <td width="150"  align="center">성별</td>
-                    <td  width="150"  align="center"><%=bean.getGender()%></td>
+                    <td  width="150"  align="center">
+                        <%if(bean.getGender()=='m'){
+                            out.print("남자");
+                        }
+                        else{
+                            out.print("여자");
+                        }%>
+                    </td>
                 </tr>
 
                 <tr height="40">
