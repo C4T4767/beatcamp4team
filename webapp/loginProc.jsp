@@ -29,7 +29,7 @@
             session.setAttribute("user", member);
             out.println("<script>");
             out.println("alert('로그인에 성공하였습니다.');");
-            out.println("location.href='loginAccess.jsp';");
+            out.println("location.href='logout.jsp';");
             out.println("</script>");
         } else {
             // 로그인 실패
