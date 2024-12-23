@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+    function getText(){
+        $.ajax({
+            url:"data.txt",
+            type:"post",
+            dataType:"text",
+            success:function(rec_data){
+                $("#result").text(rec_data);
+            }
+        });
+    }
+
+    function getHtml(){
+        $.ajax({
+            url: "data2.html",
+            type: "post",
+            dataType: "html",
+              success: function (rec_data) {
+              $("#result").html(rec_data);
+            }
+        });
+    }
+
+    function getXml(){
+        $.ajax({
+            url: "data3.xml",
+            type: "post",
+            dataType: "xml",
+            success: function (rec_data) {
+                let data=$(rec_data).find("data");
+                $(data).each(function(index, obj){
+                    let food1=$(obj).find("food1");
+                    let food2=$(obj).find("food2");
+
+                    let food11=$(food1).text();
+                    let food22=$(food2).text();
+
+                    $("#result").append(food11+"<br>");
+                    $("#result").append(food22+"<br>");
+
+                });
+            }
+        });
+    }
+
+    function getJson() {
+        $.ajax({
+            url: "data4.json",
+            type: "post",
+            dataType: "json",
+            success: function (rec_data) {
+                $("#result").append(rec_data.data1 + "<br>");
+                $("#result").append(rec_data.data2 + "<br>");
+                $("#result").append(rec_data.data3 + "<br>");
+            }
+        });
+    }
+
+    </script>
+</head>
+<body>
+    <button onclick="getText()">text</button>
+    <button onclick="getHtml()">html</button>
+    <button onclick="getXml()">xml</button>
+    <button onclick="getJson()">json</button>
+
+    <div id="result"></div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+.nanum-gothic-regular {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+  }
+
+  label{
+    margin-right: 30px;
+  }
+  
+
+  
+.required{
+  color: red;
+}
+
+input{
+  border: 1px solid black;
+  border-radius: 0;
+
+
+}
+
+
+#button{
+  position: absolute;
+  margin-left: 200px;
+}
+
+button{
+  border-radius: 0px; 
+  border:1px solid black;
+}
+
+
+#user-work{
+  height: 60px;
+}
